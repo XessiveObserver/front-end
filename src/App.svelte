@@ -18,9 +18,7 @@ import Fruits from "./Fruits.svelte";
 </header>
 <section>
 	<article>
-		
 		<p>
-			
 			<button>{counter}</button>
 			<button on:click="{toggleControls}">
 				{#if !showControls}
@@ -32,13 +30,9 @@ import Fruits from "./Fruits.svelte";
 			{#if showControls}
 			<button on:click={addCounter}>+ Add</button>
 			<button on:click={subtractCounter}>- Subtract</button>
-			{/if}
-		</p>
-			
-		<p>
 			<input type="number" bind:value="{counter}">
-		</p>
-		
+			{/if}
+		</p>		
 	</article>
 </section>
 	
@@ -69,19 +63,22 @@ import Fruits from "./Fruits.svelte";
 	article {
 	
 		float:left;
-		width: 65%;
+		width: 60%;
 		padding:0px;
 		margin:0px;
-		border: 1px solid;
-	 
+		background-color: antiquewhite;
+		margin-right: 5px;
+		display: block;
 	}
 	aside {
 		padding:0px;
 		padding:0px;
-		border: 1px solid;
-		background-color: aqua;
 		width: 30%;
 		float:left;
+		background-color: azure;
+	}
+	section, aside, article{
+		margin-top: 5px;
 	}
 	nav li { list-style: none;
 		display: inline;
@@ -89,5 +86,22 @@ import Fruits from "./Fruits.svelte";
 	nav li a{
 		margin-right: 100px;
 		text-decoration: none;
+		color:darkgreen;
+		display:inline-block;
+	}
+	nav li a:hover {
+		color:darkgray;
+	}
+	header{
+		text-align: center;
+		background-color: lightgreen;
+		
+	}
+	footer{
+		text-align:center;
+	}
+	header, footer {
+		clear:both;
+		font-weight: bolder;
 	}
 </style>
