@@ -2,8 +2,11 @@
 import Fruits from "./Fruits.svelte";
 
 	let counter = 0;
+	let showControls = false;
+
 	const addCounter = () => counter += 1;
 	const subtractCounter = () => counter -= 1;
+	const toggleControls = () => {showControls = !showControls}
 </script>
 <header>
 	<nav>
@@ -15,15 +18,27 @@ import Fruits from "./Fruits.svelte";
 </header>
 <section>
 	<article>
+		
 		<p>
+			
 			<button>{counter}</button>
+			<button on:click="{toggleControls}">
+				{#if !showControls}
+					Show Controls
+				{:else}
+					Hide Controls
+				{/if}
+			</button>
+			{#if showControls}
 			<button on:click={addCounter}>+ Add</button>
 			<button on:click={subtractCounter}>- Subtract</button>
+			{/if}
 		</p>
 			
 		<p>
 			<input type="number" bind:value="{counter}">
 		</p>
+		
 	</article>
 </section>
 	
