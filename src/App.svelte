@@ -1,5 +1,9 @@
 <script>
-import Fruits from "./Fruits.svelte";
+import Games from "./Games.svelte";
+import Hobbies from "./Hobbies.svelte";
+import Topics from "./Topics.svelte";
+
+
 
 	let counter = 0;
 	let showControls = false;
@@ -8,52 +12,77 @@ import Fruits from "./Fruits.svelte";
 	const subtractCounter = () => counter -= 1;
 	const toggleControls = () => {showControls = !showControls}
 </script>
-<header>
-	<nav>
-		<li><a href="/">Home</a></li>
-		<li><a href="/">Portfolio</a></li>
-		<li><a href="/">Blog</a></li>
-		<li><a href="/">Contact</a></li>
-	</nav>
-</header>
-<section>
-	<article>
-		<p>
-			<button>{counter}</button>
-			<button on:click="{toggleControls}">
-				{#if !showControls}
-					Show Controls
-				{:else}
-					Hide Controls
-				{/if}
-			</button>
-			{#if showControls}
-			<button on:click={addCounter}>+ Add</button>
-			<button on:click={subtractCounter}>- Subtract</button>
-			<input type="number" bind:value="{counter}">
-			{/if}
-		</p>		
-	</article>
-</section>
-	
-<aside>
-	<section>
-		<p>
-			<Fruits />
-		</p>
-	</section>		
-</aside>
-	
 
-<footer>
-	&copy; All rights reserved 2021
-</footer>
+<main>
+	<header>
+		<nav>
+			<li><a href="/">Home</a></li>
+			<li><a href="/">Portfolio</a></li>
+			<li><a href="/">Blog</a></li>
+			<li><a href="/">Contact</a></li>
+		</nav>
+	</header>
+	<section>
+		<article>
+			<p>
+				<button>{counter}</button>
+				<button on:click="{toggleControls}" class="toggle">
+					{#if !showControls}
+						Show
+					{:else}
+						Hide 
+					{/if}
+				</button>
+				{#if showControls}
+					<button on:click={addCounter}>+ Add</button>
+					<button on:click={subtractCounter}>- Subtract</button>
+					<input type="number" bind:value="{counter}">
+				{/if}
+			</p>	
+			<hr>
+			<p>
+				<Topics />
+			</p>
+
+			<br>
+			<br>
+			<hr>
+			<p>
+				<Games />
+			</p>
+			
+		</article>
+	</section>
+		
+	<aside>
+		<section>
+			<p>
+				<Hobbies />
+			</p>
+			
+		</section>		
+	</aside>
+		
+	
+	<footer>
+		&copy; All rights reserved 2021
+	</footer>
+	
+</main>
 
 <style>
+	.toggle {
+		float: right;
+		margin-right: 8px;
+	}
+	main {
+		background-color: azure;
+		border-radius: 8px;
+	}
 	button{
-		background-color: green;
+		background-color: lightgreen;
 		border-radius: 20px;
-		color: whitesmoke;
+		color: darkgreen;
 		font-weight: bolder;
 	}
 	input{
@@ -61,21 +90,21 @@ import Fruits from "./Fruits.svelte";
 	}
 
 	article {
-	
+		border-radius: 8px;
 		float:left;
-		width: 60%;
+		width: 65%;
 		padding:0px;
 		margin:0px;
-		background-color: antiquewhite;
-		margin-right: 5px;
+		background-color:lightcyan;
+		margin-right: 8px;
 		display: block;
+		margin-bottom: 8px;
 	}
 	aside {
-		padding:0px;
-		padding:0px;
 		width: 30%;
 		float:left;
-		background-color: azure;
+		background-color: lightcyan;
+		border-radius: 8px;
 	}
 	section, aside, article{
 		margin-top: 5px;
@@ -88,20 +117,29 @@ import Fruits from "./Fruits.svelte";
 		text-decoration: none;
 		color:darkgreen;
 		display:inline-block;
+		margin-top: 12px;
 	}
 	nav li a:hover {
-		color:darkgray;
+		color:lightseagreen;
 	}
 	header{
 		text-align: center;
 		background-color: lightgreen;
+		height: 50px;
+		border-radius: 8px;
 		
 	}
 	footer{
 		text-align:center;
+		border-radius:8px;
+		background-color: lightgreen;
+		height: 30px;
 	}
-	header, footer {
+	nav, footer {
 		clear:both;
 		font-weight: bolder;
+	}
+	p {
+		margin-left: 8px;
 	}
 </style>
