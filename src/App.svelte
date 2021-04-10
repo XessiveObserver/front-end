@@ -142,4 +142,7 @@ import Topics from "./Topics.svelte";
 	p {
 		margin-left: 8px;
 	}
+	* {
+	box-sizing: border-box;
+	}
 </style>

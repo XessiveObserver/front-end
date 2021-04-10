@@ -62,4 +62,7 @@
         border-radius: 5px;
         margin-inline:inherit;
     }
+    * {
+	box-sizing: border-box;
+	}
 </style>

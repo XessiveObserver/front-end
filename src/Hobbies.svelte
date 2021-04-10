@@ -19,5 +19,9 @@
         background-color: lightgreen;
         width: 100px;
         border-radius: 8px;
+        margin-left: 10px;
     }
+    * {
+	box-sizing: border-box;
+	}
 </style>
