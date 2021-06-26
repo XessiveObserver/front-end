@@ -1,6 +1,6 @@
 <script>
    import { onMount } from "svelte";
-   const apiURL = "http://127.0.0.1:8000/articles";
+   const apiURL = "http://127.0.0.1:8000/posts";
    let data = [];
 
    onMount (async () => {
@@ -11,19 +11,22 @@
     
         {#each data as item}
            <p>
-                {item.article_title}
+                {item.title}
            </p> 
            <p>
-                <img src="{item.article_image}" alt="{item.article_title}">
+               {item.category}
+          </p> 
+           <p>
+                <img src={item.image} alt={item.title}>
            </p>
            <p>
-                {@html item.article_body}
+                {@html item.body}
            </p>
            <p>
-                {item.article_author}
+                {item.publisher}
            </p>
            <p>
-                {item.date_of_creation}
+                {item.date_created}
            </p>
         {/each}
     
