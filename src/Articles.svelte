@@ -1,6 +1,6 @@
 <script>
    import { onMount } from "svelte";
-   const apiURL = "http://127.0.0.1:8000/posts";
+   const apiURL = "https://rock-news.herokuapp.com/posts";
    let data = [];
 
    onMount (async () => {
